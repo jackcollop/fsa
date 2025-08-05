@@ -29,7 +29,6 @@ options.add_argument('--aggressive-cache-discard')
 
 prefs = {
     "download.default_directory": os.getcwd(),
-    "download.directory_upgrade": True,
     "download.prompt_for_download": False,
 }
 
