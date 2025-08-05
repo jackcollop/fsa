@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
-
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.os_manager import ChromeType
 
 driver = webdriver.Chrome()
 driver.get('https://apps.fsa.usda.gov/sorspub/reports/web/public/loan-maturity-national')
