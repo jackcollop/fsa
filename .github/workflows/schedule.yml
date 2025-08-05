@@ -43,3 +43,16 @@ jobs:
     - name: execute python script
 
       run: python script.py
+
+    - name: Git commit
+      run: |
+          git add *
+          git config --local user.email "action@github.com"
+          git config --local user.name "Github Action"
+          git commit -m "Data commit"
+
+    - name: Git push
+      run: |
+          git push "https://${GITHUB_ACTOR}:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+      env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
