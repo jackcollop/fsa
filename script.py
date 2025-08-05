@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+import os
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.os_manager import ChromeType
 from selenium.webdriver import Chrome
@@ -25,6 +26,14 @@ options.add_argument('--media-cache-size=1')
 options.add_argument('--incognito')
 options.add_argument('--remote-debugging-port=9222')
 options.add_argument('--aggressive-cache-discard')
+
+prefs = {
+    "download.default_directory": os.getcwd(),
+    "download.directory_upgrade": True,
+    "download.prompt_for_download": False,
+}
+
+options.add_experimental_option("prefs", prefs)
 
 service = Service('/usr/local/bin/chromedriver')
     
