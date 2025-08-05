@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+import webdriver_manager
 
 from selenium.webdriver import Chrome
 from selenium.webdriver.support.ui import WebDriverWait
