@@ -33,6 +33,10 @@ prefs = {"download.default_directory" : os.getcwd()}
 options.add_experimental_option("prefs",prefs)
 
 service = Service('/usr/local/bin/chromedriver')
+
+driver.execute_cdp_cmd(
+    "Page.setDownloadBehavior", {"behavior": "allow", "downloadPath": os.getcwd()}
+    )
     
 driver = webdriver.Chrome(service=service, options=options)
 driver.get('https://apps.fsa.usda.gov/sorspub/reports/web/public/loan-maturity-national')
