@@ -28,7 +28,7 @@ options.add_argument('--remote-debugging-port=9222')
 options.add_argument('--aggressive-cache-discard')
 
 prefs = {
-    "download.default_directory": os.getcwd(),
+    "download.default_directory": os.getcwd()+'/.github/workflows/',
     "download.prompt_for_download": False,
 }
 
