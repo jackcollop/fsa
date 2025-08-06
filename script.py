@@ -28,7 +28,6 @@ options.add_argument('--disk-cache-size=1')
 options.add_argument('--media-cache-size=1')
 options.add_argument('--incognito')
 options.add_argument('--remote-debugging-port=9222')
-options.add_argument('--aggressive-cache-discard')
 
 prefs = {"download.default_directory" : os.getcwd()}
 options.add_experimental_option("prefs",prefs)
