@@ -56,6 +56,13 @@ driver.get('https://apps.fsa.usda.gov/sorspub/reports/web/public/loan-maturity-s
 
 time.sleep(1)
 
+select = Select(driver.find_element(by=By.ID,value='commodity'))
+select.select_by_visible_text('COTTON-UP')
+
+select = Select(driver.find_element(by=By.ID,value='cropYear'))
+select.select_by_visible_text('2024')
+
+time.sleep(1)
 driver.execute_script("javascript:submitRequest('/sorspub/reports','csv')")
 
 time.sleep(1)
