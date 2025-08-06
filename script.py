@@ -30,14 +30,6 @@ options.add_argument('--incognito')
 options.add_argument('--remote-debugging-port=9222')
 options.add_argument('--aggressive-cache-discard')
 
-dir = os.getcwd()
-
-prefs = {
-    "download.default_directory": dir,
-    "download.prompt_for_download": False,
-}
-
-options.add_experimental_option("prefs", prefs)
 
 service = Service('/usr/local/bin/chromedriver')
     
@@ -55,7 +47,7 @@ time.sleep(3)
 driver.execute_script("javascript:submitRequest('/sorspub/reports','csv')")
 
 today = datetime.datetime.today().strftime('%Y-%m-%d')
-x = pd.read_csv(f'{dir}/loan-maturity-national.6100.{today}.csv', skiprows=4)
+x = pd.read_csv(f'C:/Downloads/loan-maturity-national.6100.{today}.csv', skiprows=4)
 
 x.to_csv(path_or_buf=f'LOAN-{today}.csv')
 
