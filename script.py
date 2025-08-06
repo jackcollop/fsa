@@ -50,10 +50,14 @@ time.sleep(3)
 
 driver.execute_script("javascript:submitRequest('/sorspub/reports','csv')")
 
-today = datetime.datetime.today().strftime('%Y-%m-%d')
-x = pd.read_csv(f'loan-maturity-national.6100.{today}.csv', skiprows=4)
+time.sleep(1)
 
-x.to_csv(path_or_buf=f'LOAN-{today}.csv')
+driver.get('https://apps.fsa.usda.gov/sorspub/reports/web/public/loan-maturity-state')
 
 time.sleep(1)
+
+driver.execute_script("javascript:submitRequest('/sorspub/reports','csv')")
+
+time.sleep(1)
+
 driver.quit()
