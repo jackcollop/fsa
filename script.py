@@ -1,6 +1,9 @@
 from selenium import webdriver
 import time
 import os
+import datetime
+import pandas as pd
+
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.os_manager import ChromeType
 from selenium.webdriver import Chrome
@@ -28,7 +31,7 @@ options.add_argument('--remote-debugging-port=9222')
 options.add_argument('--aggressive-cache-discard')
 
 prefs = {
-    "download.default_directory": os.getcwd()+'/.github/workflows/',
+    "download.default_directory": os.getcwd(),
     "download.prompt_for_download": False,
 }
 
@@ -49,4 +52,9 @@ time.sleep(3)
 
 driver.execute_script("javascript:submitRequest('/sorspub/reports','csv')")
 
-time.sleep(10)
+x = pd.read_csv(f'loan-maturity-national.6100.{today}.csv', skiprows=4)
+
+x.to_csv(path_or_buf=f'LOAN-{today}.csv')
+
+time.sleep(1)
+driver.quit()
